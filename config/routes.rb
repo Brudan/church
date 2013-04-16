@@ -11,6 +11,12 @@ Church::Application.routes.draw do
   root :to => "home#index"
   #devise_for :users
   #resources :users
-  match '/signup',  to: 'users#new'
   
+
+  resources :sessions, only: [:new, :create, :destroy]
+
+  #matching urls
+  match '/signup',  to: 'users#new'
+  match '/churches',  to: 'users#index'
+  match '/signin', to: 'sessions#new'
 end
