@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+   before_filter :signed_in_user, only: [:create, :destroy]
+
   # GET /events
   # GET /events.json
   def index
@@ -40,12 +43,13 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(params[:event])
+    @event = Event.current_user.events.build(params[:event])
 
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
+        redirect_to root_url
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }
