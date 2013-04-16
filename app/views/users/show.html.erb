@@ -1,3 +1,31 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<% provide(:title, @user.username) %>
+<p id="notice"><%= notice %></p>
+<!--
+<p>
+  <b>Username:</b>
+  <%= @user.username %>
+</p>
+-->
+<p>
+  <b>Church:</b>
+  <%= @user.church %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user.location %>
+</p>
+
+<p>
+  <b>Religion:</b>
+  <%= @user.religion %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

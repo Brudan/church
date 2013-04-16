@@ -1,8 +1,31 @@
-<h3>Users</h3>
-<ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= link_to user.name, user %> signed up <%= user.created_at.to_date %>
-    </li>
-  <% end %>
-</ul>
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Church</th>
+    <th>Email</th>
+    <th>Location</th>
+    <th>Religion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%# user.username %></td>
+    <td><%= user.church %></td>
+    <td><%= user.email %></td>
+    <td><%= user.location %></td>
+    <td><%= user.religion %></td>
+    <td><%= link_to 'Details', user %></td>
+    <td><%#= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User', new_user_path %>

@@ -79,6 +79,8 @@ Church::Application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
 
+  config.force_ssl = true
+
 
 
   # Log the query plan for queries taking more than this (works
