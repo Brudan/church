@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  #only a signed in user can make changes
+  before_filter :signed_in_user, only: [:edit, :update]
+  before_filter :correct_user,   only: [:edit, :update]
+  #before_filter :current_user
+  before_filter :admin_user,     only: :destroy
+
   # GET /users
   # GET /users.json
   def index
@@ -62,6 +69,8 @@ class UsersController < ApplicationController
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
+        sign_in @user
+      redirect_to @user
       else
         format.html { render action: "edit" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -72,12 +81,39 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User destroyed."
+    redirect_to users_url
+    #@user = User.find(params[:id])
+    #@user.destroy
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
+    #respond_to do |format|
+     # format.html { redirect_to users_url }
+      #format.json { head :no_content }
+    #end
+  end
+
+
+  private
+
+    def signed_in_user
+      unless signed_in?
+        store_location
+      redirect_to signin_url, notice: "Please sign in." unless signed_in?
     end
   end
+
+    def correct_user
+      #@user = User.find(params[:id])
+      #@user = User.find(current_user.id)
+      #redirect_to(root_path) unless @user?#(@user)
+      #redirect_to(root_path) unless current_user(@user)?
+      @user = User.find(params[:id])
+      redirect_to(root_path) unless current_user?(@user)
+    end
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 end
+
+#comparing current_user.id to @cause.user_id

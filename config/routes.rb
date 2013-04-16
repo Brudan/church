@@ -8,7 +8,8 @@ Church::Application.routes.draw do
   #authenticated :user do
    # root :to => 'home#index'
   #end
-  root :to => "home#index"
+  #root :to => "home#index"
+  root :to => "events#index"
   #devise_for :users
   #resources :users
   
@@ -19,4 +20,5 @@ Church::Application.routes.draw do
   match '/signup',  to: 'users#new'
   match '/churches',  to: 'users#index'
   match '/signin', to: 'sessions#new'
+  match '/login', to: 'sessions#new'
 end

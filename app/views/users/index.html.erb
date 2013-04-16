@@ -1,31 +1,25 @@
-<h1>Listing users</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Church</th>
-    <th>Email</th>
-    <th>Location</th>
-    <th>Religion</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @users.each do |user| %>
-  <tr>
-    <td><%# user.username %></td>
-    <td><%= user.church %></td>
-    <td><%= user.email %></td>
-    <td><%= user.location %></td>
-    <td><%= user.religion %></td>
-    <td><%= link_to 'Details', user %></td>
-    <td><%#= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%#= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New User', new_user_path %>
+<% provide(:title, 'Registered Churches') %>
+<h1>All users</h1>
+
+<ul class="churches">
+  <% @users.each do |user| %>
+    <li>
+      <ul><%= link_to user.church, user %></ul>
+      <ul><%= user.email %></ul>
+      <ul><%= user.location %></ul>
+      <ul><%= user.religion %></ul>
+      <ul><%= link_to 'Details', user %></ul>
+      <ul><%= link_to 'Events', '#' %></ul>
+      <%#= link_to user.username, user %>
+    </li>
+  <% end %>
+</ul>
+
+<!--
+only if admin
+-->
+<%#= link_to 'New User', new_user_path %>
