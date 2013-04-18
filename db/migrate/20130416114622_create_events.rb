@@ -6,11 +6,11 @@ class CreateEvents < ActiveRecord::Migration
       t.string :location
       t.datetime :start_time
       t.datetime :end_time
-      t.integer :church_id
+      t.integer :user_id
 
       t.timestamps
     end
-    add_index :events, [:church_id, :created_at]
+    add_index :events, [:user_id, :created_at]
   
   end
 end

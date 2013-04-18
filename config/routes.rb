@@ -24,5 +24,7 @@ Church::Application.routes.draw do
   match '/churches',  to: 'users#index'
   match '/signin', to: 'sessions#new'
   match '/login', to: 'sessions#new'
+  #match '/home', to: 'root'
+  match '/signout', to: 'sessions#destroy', via: :delete
   
 end

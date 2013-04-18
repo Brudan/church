@@ -24,6 +24,8 @@ class EventsController < ApplicationController
     end
   end
 
+
+
   # GET /events/new
   # GET /events/new.json
   def new
@@ -43,13 +45,14 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    @event = Event.current_user.events.build(params[:event])
+    #@event = Event.current_user.events.build(params[:event])
+    @event = current_user.events.new(params[:event])
 
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render json: @event, status: :created, location: @event }
-        redirect_to root_url
+        #redirect_to root_url
       else
         format.html { render action: "new" }
         format.json { render json: @event.errors, status: :unprocessable_entity }

@@ -3,14 +3,24 @@
     <div class="navbar-inner">
     -->
     <div id="container" class="container">
-      <%= link_to "Church", '#', id: "logo" %>
+      <a class="brand"><%= link_to "Church", '/', id: "logo" %></a>
       <!--<header>-->
         <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Home",    '#' %></li>
+              <% if signed_in? %>
+              <li><%= link_to "Churches",    '/churches' %></li>
               <li><%= link_to "Help",    '#' %></li>
-              <li><%= link_to "Sign in", '#' %></li>
-              <li><%= link_to "Sign up now!", '#' %></li>
+              <li><%= link_to "CHurch Name",    '#' %></li>
+              <li><%#= @user.church %></li>
+              <li><%#= link_to @user.church %>
+                <%= link_to "New CHurch Event", new_event_path %></li>
+              <li><%= link_to "SignOut", signout_path, method: "delete" %>
+                <%#= link_to "SignOut", destroy_user_session_path, method: :delete %></li>
+              <% else %>
+              <li><%= link_to "Churches",    '/churches' %></li>
+              <li><%= link_to "Sign in", '/login' %></li>
+              <li><%= link_to "Sign up now!", '/signup' %></li>
+              <% end %>
             </ul>
           </nav>
         <%#= render 'layouts/navigation' %>

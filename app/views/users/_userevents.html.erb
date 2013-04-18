@@ -1,11 +1,12 @@
-<% if @user.events.any? %>
-      <h3>Events (<%= @user.events.count %>)</h3>
-      <!--
-      <ol class="events">
-      -->
-        <%= render @events %>
-        <!--
-      </ol>
-  -->
-      <%#= will_paginate @microposts %>
-    <% end %>
+<li>
+  <span class="content"></span>
+  <%= event.name %>
+  <%= event.description %>
+  <%= event.location %>
+  <%= event.start_time %>
+   <%= event.end_time %>
+   <%#= event.user_id %>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+  </span>
+</li>
