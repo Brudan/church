@@ -22561,3 +22561,4 @@ Processing by UsersController#index as HTML
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 116ms (Views: 114.5ms | ActiveRecord: 0.5ms)
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
