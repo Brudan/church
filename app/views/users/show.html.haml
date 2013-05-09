@@ -1,0 +1,32 @@
+- provide(:title, @user.church)
+%p#notice= notice
+/
+  <p>
+  <b>Username:</b>
+  <haml:loud> @user.username </haml:loud>
+  </p>
+%p
+  %b Church:
+  = @user.church
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Location:
+  = @user.location
+%p
+  %b Religion:
+  = @user.religion
+/ this temprary problem
+%p
+- if @user.events.any?
+  = @user.events.count
+  Events!
+  /
+    <ol class="events">
+    
+    </ol>
+  = render @events
+- if signed_in?
+  |
+= link_to 'Back', users_path

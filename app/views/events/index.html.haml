@@ -1,0 +1,28 @@
+- provide(:title, "Church Events around you")
+%h1 Listing events
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Location
+    %th Start
+    %th End
+    %th Church
+    %th
+    %th
+    %th
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.description
+      %td= event.location
+      %td= event.start_time
+      %td= event.end_time
+      %td= link_to event.user.church, event.user
+      %td/
+    %td= link_to 'Event Details', event
+    %td= link_to "Attending", '#'
+    %td/
+    %td/
+    %td/
+%br/

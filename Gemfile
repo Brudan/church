@@ -12,7 +12,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-
+gem 'geocoder'
+gem 'haml'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -1,0 +1,24 @@
+%p#notice= notice
+%p
+  %b Name:
+  = @event.name
+%p
+  %b Description:
+  = @event.description
+%p
+  %b Location:
+  = @event.location
+%p
+  %b Start:
+  = @event.start_time
+%p
+  %b End:
+  = @event.end_time
+%p
+  %b Church:
+  = link_to @event.user.church, @event.user
+- if current_user == @event.user
+  = link_to 'Edit', edit_event_path(@event)
+  |
+  \#{link_to 'Delete', method: :delete, data: { confirm: 'Are you sure?' }} |
+= link_to 'Back', events_path

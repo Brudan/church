@@ -1,0 +1,13 @@
+%h1 New event
+- if signed_in?
+  = render 'form'
+  = link_to 'Back', events_path
+- else
+  %h3
+    To add an event, you must have a church account.
+  %p
+    %b
+      = link_to 'Request for an Account', '#'
+  %h3
+  %p
+    = link_to 'Back', events_path

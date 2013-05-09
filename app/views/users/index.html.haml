@@ -1,0 +1,13 @@
+- provide(:title, 'Church: Registered Churches')
+%h1 All churches
+%ul.churches
+  - @users.each do |user|
+    %li
+      %ul= link_to user.church, user
+      %ul= user.email
+      %ul= user.location
+      %ul= user.religion
+      %ul= link_to 'Details', user
+      %ul= link_to 'Events', '#'
+/
+  only if admin

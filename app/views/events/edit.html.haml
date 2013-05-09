@@ -1,0 +1,8 @@
+%h1 Editing event
+- if current_user == @event.user
+  = render 'form'
+- else
+  YOu must be the owner of this event for you to edit it.
+= link_to 'Show', @event
+|
+\#{link_to 'Back', events_path}

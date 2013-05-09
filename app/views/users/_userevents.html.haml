@@ -1,0 +1,9 @@
+%li
+  %span.content
+  = event.name
+  = event.description
+  = event.location
+  = event.start_time
+  = event.end_time
+  %span.timestamp
+    Posted #{time_ago_in_words(event.created_at)} ago.

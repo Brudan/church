@@ -1,0 +1,16 @@
+= form_for(@event) do |f|
+  = render 'shared/error_messages', object: f.object
+  .field
+    = f.text_field :name, placeholder: "Event Name"
+  .field
+    = f.text_area :description, placeholder: "Event Description"
+  .field
+    = f.text_field :location, placeholder: "Event Location"
+  .field
+    = f.datetime_select :start_time, placeholder: "Start Date and Time"
+  .field
+    = f.datetime_select :end_time, placeholder: "End Date and Time"
+  /
+    <div class="field">
+  / </div
+  = f.submit "Post Event", class: "btn btn-large btn-primary"

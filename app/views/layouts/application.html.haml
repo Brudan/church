@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Church"
+    %meta{:content => content_for?(:description) ? yield(:description) : "Church", :name => "description"}/
+    = stylesheet_link_tag "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  %body
+    = render 'layouts/header'
+    #main.container{:role => "main"}
+      - flash.each do |key, value|
+        %div{:class => "alert alert-#{key}"}= value
+      = yield
+    = render 'layouts/footer'
+    / ! end of #container
