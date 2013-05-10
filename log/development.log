@@ -23267,3 +23267,39 @@ NoMethodError - undefined method `location' for "202.188.199.2":String:
 
 
 Started POST "/__better_errors/95970260/variables" for 127.0.0.1 at 2013-05-09 11:08:26 +0800
+Connecting to database specified by database.yml
+  [1m[36m (1.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateUsers (20130416112235)
+Migrating to CreateEvents (20130416114622)
+Migrating to AddPasswordDigestToUsers (20130416130102)
+Migrating to AddRememberTokenToUsers (20130416144319)
+Migrating to AddAdminToUsers (20130416180828)
+Migrating to CreateLocations (20130509021007)
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/locations" for 127.0.0.1 at 2013-05-10 14:30:12 +0800
+Processing by LocationsController#index as HTML
+  [1m[36mLocation Load (0.1ms)[0m  [1mSELECT "locations".* FROM "locations" [0m
+  Rendered locations/index.html.haml within layouts/application (50.6ms)
+Compiled styles.css  (935ms)  (pid 17274)
+Compiled locations.css  (2ms)  (pid 17274)
+Compiled application.css  (25ms)  (pid 17274)
+Compiled locations.js  (132ms)  (pid 17274)
+Compiled application.js  (173ms)  (pid 17274)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1
+  Rendered layouts/_header.html.haml (54.7ms)
+  Rendered layouts/_footer.html.haml (1.2ms)
+Completed 200 OK in 1592ms (Views: 1517.3ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/locations/new" for 127.0.0.1 at 2013-05-10 14:30:26 +0800
+Processing by LocationsController#new as HTML
+  Rendered locations/_form.html.haml (12.3ms)
+  Rendered locations/new.html.haml within layouts/application (15.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."remember_token" IS NULL LIMIT 1[0m
+  Rendered layouts/_header.html.haml (1.6ms)
+  Rendered layouts/_footer.html.haml (0.1ms)
+Completed 200 OK in 98ms (Views: 86.4ms | ActiveRecord: 0.3ms)
