@@ -99,8 +99,12 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     mime-types (1.22)
+    mocha (0.13.3)
+      metaclass (~> 0.0.1)
     multi_json (1.7.2)
+    nifty-generators (0.4.6)
     nokogiri (1.5.9)
     pg (0.15.1)
     polyglot (0.3.3)
@@ -190,6 +194,8 @@ DEPENDENCIES
   jquery-rails
   launchy (>= 2.2.0)
   libv8 (>= 3.11.8)
+  mocha
+  nifty-generators
   pg
   quiet_assets (>= 1.0.2)
   rails (= 3.2.12)
