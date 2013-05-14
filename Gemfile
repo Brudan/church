@@ -14,6 +14,7 @@ end
 
 gem 'geocoder'
 gem 'haml'
+gem 'json', '~> 1.7.7'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -21,9 +22,15 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 gem 'jquery-rails'
-gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
+group :development do
+     gem 'rspec-rails', '~> 2.0'
+end
+
+group :test do
+  gem 'rspec', '~> 2.0'
+end
 gem "database_cleaner", ">= 1.0.0.RC1", :group => :test
-gem "email_spec", ">= 1.4.0", :group => :test
+
 gem "cucumber-rails", ">= 1.3.1", :group => :test, :require => false
 gem "launchy", ">= 2.2.0", :group => :test
 gem "capybara", ">= 2.0.3", :group => :test
